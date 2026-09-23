@@ -396,20 +396,60 @@
                 </ul>
             </div>
         </li>
-
         <li class="nav-item">
-            <a href="#" class="nav-link collapsed" data-bs-toggle="collapse" aria-expanded="false">
-                <i class="bi bi-tags"></i>
-                Categorias
+            <a href="#menu-bairros"
+               class="nav-link {{ request()->routeIs('bairros.*') ? '' : 'collapsed' }}"
+               data-bs-toggle="collapse"
+               aria-expanded="{{ request()->routeIs('bairros.*') ? 'true' : 'false' }}">
+                <i class="bi bi-building"></i>
+                Bairros
                 <i class="bi bi-chevron-right chevron ms-auto"></i>
             </a>
-            <div class="collapse submenu" id="menu-cat">
+            <div class="collapse submenu {{ request()->routeIs('bairros.*') ? 'show' : '' }}" id="menu-bairros">
                 <ul class="nav flex-column" style="list-style:none; padding:0;">
-                    <li class="nav-item"><a href="#" class="nav-link">Lista de Categorias</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Nova Categoria</a></li>
+                    <li class="nav-item">
+                        <a href="{{ route('bairros.index') }}"
+                           class="nav-link {{ request()->routeIs('bairros.index') ? 'active' : '' }}">
+                            Lista de Bairros
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('bairros.create') }}"
+                           class="nav-link {{ request()->routeIs('bairros.create') ? 'active' : '' }}">
+                            Novo Bairro
+                        </a>
+                    </li>
                 </ul>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a href="#menu-pedidos"
+               class="nav-link {{ request()->routeIs('pedidos.*') ? '' : 'collapsed' }}"
+               data-bs-toggle="collapse"
+               aria-expanded="{{ request()->routeIs('pedidos.*') ? 'true' : 'false' }}">
+                <i class="bi bi-building"></i>
+                Pedidos
+                <i class="bi bi-chevron-right chevron ms-auto"></i>
+            </a>
+            <div class="collapse submenu {{ request()->routeIs('pedidos.*') ? 'show' : '' }}" id="menu-pedidos">
+                <ul class="nav flex-column" style="list-style:none; padding:0;">
+                    <li class="nav-item">
+                        <a href="{{ route('pedidos.index') }}"
+                           class="nav-link {{ request()->routeIs('pedidos.index') ? 'active' : '' }}">
+                            Lista de Pedidos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('pedidos.create') }}"
+                           class="nav-link {{ request()->routeIs('pedidos.create') ? 'active' : '' }}">
+                            Novo Pedido
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+        
 
         <li class="nav-section-label">Sistema</li>
 
