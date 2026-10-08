@@ -18,13 +18,23 @@ class PedidoController extends Controller
      */
     public function index()
     {
-         $pedidos = Pedido::with('itens')
-        ->orderBy('created_at', 'desc')
+        $pedidos = Pedido::with('itens')
+        ->where('status', 'Pendente')
+        ->orderBy('created_at', 'asc')
         ->get();
 
-        return view('pedidos.index', compact('pedidos'));
+    return view('pedidos.index', compact('pedidos'));
     }
 
+        public function prontos()
+    {
+        $pedidos = Pedido::with('itens')
+            ->where('status', 'Pronto')
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return view('pedidos.prontos', compact('pedidos'));
+    }
     /**
      * Show the form for creating a new resource.
      */

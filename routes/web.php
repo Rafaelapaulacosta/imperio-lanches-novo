@@ -24,4 +24,8 @@ Route::resource('refrigerantes', RefrigeranteController::class)->parameters([
     'refrigerantes' => 'refrigerante'
 ]);
 
+Route::get('/pedidos-prontos', [PedidoController::class, 'prontos'])
+    ->name('pedidos.prontos');
+
+
 Route::resource('pedidos', PedidoController::class);
